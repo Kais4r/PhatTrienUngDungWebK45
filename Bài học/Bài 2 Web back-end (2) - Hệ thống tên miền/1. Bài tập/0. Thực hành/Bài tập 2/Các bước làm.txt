@@ -1,0 +1,10 @@
+1.Nhấp chuột phải vào notepad vả chọn run as admin
+2.Trong nodepad chọn open để mở file hosts.ics với đường dẫn bên dưới:
+
+đường dẫn đến tệp hosts
+C:\Windows\System32\drivers\etc
+
+mở tệp hosts vả thêm 127.0.0.1 hocdns.com vào cuối
+
+– Mở chương trình CMD hoặc Powershell, dùng lệnh ipconfig /displaydns đối với CMD,
+hoặc dùng lệnh Get-dnsclientcache đối với Powershell để xem kết quả.
