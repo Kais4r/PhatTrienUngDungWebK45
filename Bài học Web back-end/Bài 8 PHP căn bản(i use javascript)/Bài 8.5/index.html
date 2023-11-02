@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Boxes</title>
+</head>
+<body>
+  <div class="content">
+    <select name="group" id="group" style="width: 200px"></select>
+    <br>
+    <select name="city" id="city" style="width: 300px"></select>
+  </div>
+
+  <script>
+    var group = {
+      '1': 'Admin',
+      '2': 'Manager',
+      '3': 'Member',
+      '4': 'Guest'
+    };
+
+    var city = {
+      'ct': 'Cần Thơ',
+      'hg': 'Hậu Giang',
+      'bt': 'Bến Tre'
+    };
+
+    function createSelectbox(name, attributes, array, keySelect) {
+      var selectbox = document.getElementById(name);
+      selectbox.style = attributes;
+
+      for (var key in array) {
+        var option = document.createElement('option');
+        option.value = key;
+        option.text = array[key];
+
+        if (key == keySelect) {
+          option.selected = true;
+        }
+
+        selectbox.appendChild(option);
+      }
+    }
+
+    createSelectbox('group', 'width: 200px', group, '4');
+    createSelectbox('city', 'width: 300px', city, 'hg');
+  </script>
+</body>
+</html>

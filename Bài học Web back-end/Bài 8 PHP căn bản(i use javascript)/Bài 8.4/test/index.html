@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ATM</title>
+  <style>
+    .content {
+      width: 700px;
+      height: 400px;
+      border: 2px solid #9A9A9A;
+      background: #E6E6E6;
+      margin: 20px auto;
+    }
+   
+    .content .info {
+      height: 150px;
+      padding: 0px;
+    }
+    .content .info img {
+      margin: 10px;
+      float: left;
+      border-radius: 5px;
+    }
+
+    .content .info h1 {
+      color: red;
+      margin: 0px;
+      padding-left: 275px;
+    }
+
+    .content .info p {
+      font-size: 18px;
+    }
+
+    .content .info input {
+      height: 30px;
+    }
+
+    .content .info input[type='text'] {
+      width: 300px;
+      font-size: 18px;
+    }
+
+    .content .info input[type='password'] {
+      width: 300px;
+      font-size: 18px;
+    }
+
+    .content .info input[type='submit'] {
+      width: 100px;
+      font-size: 18px;
+      border-radius: 5px;
+      height: 34px;
+    }
+
+    .clr {
+      clear:both;
+    }
+
+    .result div p {
+      display: inline-table;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 0px;
+      margin-bottom: 5px;
+    }
+    .result div p.col1{
+      width: 200px;
+      text-align: left;
+    }
+    .result div p.col2{
+      width: 200px;
+      text-align: center;
+    }
+    .result div p.col3{
+      width: 200px;
+      text-align: right;
+    }
+    .result {
+      padding: 10px;
+    }
+
+    .result p.total {
+      text-align: right;
+      font-size: 20px;
+      font-weight: bold;
+      color: #3879D9;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="info">
+      <img src="images/atm.jpg" alt="atm">
+      <h1>Mô phỏng máy ATM</h1>
+      <form action="#" method="get" id="atm-form">
+        <p>Vui lòng nhập thông tin tài khoản và mã PIN</p>
+        <input type="text" name="account" id="account" placeholder="Số tài khoản">
+        <input type="password" name="pin" id="pin" placeholder="Mã PIN">
+        <p>Vui lòng nhập vào số tiền mà quý khách muốn thực hiện giao dịch</p>
+        <input type="text" name="money" id="money" value="0">
+        <input type="submit" value="Rút tiền">
+      </form>
+    </div>
+    <div class="clr"></div>
+    <div class="result">
+      <div class="normal">
+        <p class="col1">Mệnh giá</p>
+        <p class="col2">Số lượng</p>
+        <p class="col3">Thành tiền</p>
+      </div>
+      <div class="clr"></div>
+      <div id="result-section">
+        <hr>
+        <p class="total">Tổng tiền: 0</p>
+      </div>
+    </div><!-- .result -->
+  </div>
+
+  <script>
+    document.getElementById("atm-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const account = document.getElementById("account").value;
+      const pin = document.getElementById("pin").value;
+      const money = parseInt(document.getElementById("money").value);
+      if (account.trim() === "" || pin.trim() === "" || isNaN(money) || money < 0) {
+        alert("Vui lòng điền thông tin tài khoản, mã PIN và số tiền hợp lệ.");
+      } else {
+        calculateResult(money);
+      }
+    });
+
+    function calculateResult(money) {
+      // Cùng phần JavaScript tính toán kết quả giao dịch như trong ví dụ trước.
+    }
+  </script>
+</body>
+</html>
